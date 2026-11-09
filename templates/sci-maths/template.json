@@ -1,0 +1,51 @@
+{
+  "schema_version": "zcg-template-v1",
+  "template_id": "sci-maths",
+  "kind": "context-stack",
+  "target_role": "domain-policy",
+  "description": "Formal & Applied Mathematics Knowledge Corpus (Linear Algebra, Calculus, Differential Equations)",
+  "recommended_surface_bindings": [
+    {
+      "binding_id": "sci-maths-surface-binding",
+      "description": "Formal & Applied Mathematics Knowledge Corpus (Linear Algebra, Calculus, Differential Equations)",
+      "mode": "authoritative",
+      "target_globs": [
+        "*"
+      ],
+      "architectural_planes": [
+        "*"
+      ],
+      "scopes": [
+        "*"
+      ],
+      "traits": [
+        "*"
+      ],
+      "default_resolution": "L2",
+      "invariants": [
+        "Enforce sci-maths (context-stack) rules and canonical assets"
+      ],
+      "rule_files": [
+        "templates/sci-maths/rules/sci-maths.md"
+      ],
+      "canonical_templates": [
+        "templates/sci-maths/skills/sci-maths-guide/SKILL.md",
+        "templates/sci-maths/assets/canonical_snippet.md"
+      ],
+      "ephemeral_fork_policy": {
+        "bot_role": "sci-maths-guardian",
+        "trigger": "on_surface_match",
+        "model_tier": "inherit",
+        "access_mode": "strictly-read-only",
+        "mount_templates": [
+          "sci-maths"
+        ],
+        "resolution": "L2",
+        "ttl_seconds": 300,
+        "handback_contract": "4-channel-digest+rcap1"
+      }
+    }
+  ],
+  "stack_group": "context-stack",
+  "extends": "scientific-methodology"
+}

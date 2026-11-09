@@ -1,0 +1,121 @@
+{
+  "schema_version": "zcg-node-v1",
+  "layer_id": "sci-maths",
+  "layer_role": "knowledge",
+  "precedence": 20,
+  "entity_kind": "open-source",
+  "governing_root_id": "sci-maths",
+  "visibility": "public",
+  "stewardship_stage": "public-community",
+  "public_url": "https://github.com/mtwuser/sci-maths.git",
+  "canonical_authority_url": "https://github.com/consortium-sci/sci-maths.git",
+  "description": "Formal & Applied Mathematics Knowledge Corpus (Linear Algebra, Calculus, Differential Equations)",
+  "upstream_layer": {
+    "layer_id": "mtwuser/zero-cloud-gravity",
+    "repository": "https://github.com/mtwuser/zero-cloud-gravity.git",
+    "branch": "master"
+  },
+  "mounted_layers_dir": "layers",
+  "mounted_layers": [],
+  "default_stack_templates": [
+    "science-base",
+    "scientific-methodology",
+    "sci-maths",
+    "node-work-cockpit"
+  ],
+  "baseline_guardrails": [
+    "Enforce sci-maths E3..E1 primary-source citation_receipt integrity"
+  ],
+  "surface_bindings": [
+    {
+      "binding_id": "sci-maths-surface-binding",
+      "description": "Formal & Applied Mathematics Knowledge Corpus (Linear Algebra, Calculus, Differential Equations)",
+      "mode": "authoritative",
+      "target_globs": [
+        "*"
+      ],
+      "architectural_planes": [
+        "*"
+      ],
+      "scopes": [
+        "*"
+      ],
+      "traits": [
+        "*"
+      ],
+      "default_resolution": "L2",
+      "invariants": [
+        "Enforce sci-maths (context-stack) rules and canonical assets"
+      ],
+      "rule_files": [
+        "templates/sci-maths/rules/sci-maths.md"
+      ],
+      "canonical_templates": [
+        "templates/sci-maths/skills/sci-maths-guide/SKILL.md",
+        "templates/sci-maths/assets/canonical_snippet.md"
+      ],
+      "ephemeral_fork_policy": {
+        "bot_role": "sci-maths-guardian",
+        "trigger": "on_surface_match",
+        "model_tier": "inherit",
+        "access_mode": "strictly-read-only",
+        "mount_templates": [
+          "sci-maths"
+        ],
+        "resolution": "L2",
+        "ttl_seconds": 300,
+        "handback_contract": "4-channel-digest+rcap1"
+      }
+    }
+  ],
+  "environments": {
+    "dev": {
+      "description": "Local sci-maths curation workspace",
+      "access_mode": "read-write-local",
+      "default_guardrails": [
+        "Verify sci-maths primary citations"
+      ]
+    },
+    "tst": {
+      "description": "Validation environment for sci-maths",
+      "access_mode": "read-and-test-trigger",
+      "default_guardrails": [
+        "Verify sci-maths rcap1 capsules"
+      ]
+    },
+    "pre": {
+      "description": "Staging audit for sci-maths",
+      "access_mode": "strictly-read-only",
+      "default_guardrails": [
+        "Audit sci-maths citation drift"
+      ]
+    },
+    "pro": {
+      "description": "Canonical public corpus for sci-maths",
+      "access_mode": "strictly-read-only-audited",
+      "default_guardrails": [
+        "Enforce sci-maths E3..E1 immutability"
+      ]
+    }
+  },
+  "federated_mcps": [],
+  "layer_authority": {
+    "owner_role": "sci-maths Knowledge Steward",
+    "authorized_emails": [
+      "mtwuser@users.noreply.github.com"
+    ],
+    "escalation_contact": "sci-maths Knowledge Steward <mtwuser@users.noreply.github.com>",
+    "roster": {
+      "owners": [
+        {
+          "email": "mtwuser@users.noreply.github.com",
+          "title": "sci-maths Knowledge Steward",
+          "squad": ""
+        }
+      ],
+      "maintainers": [],
+      "validators": [],
+      "members": []
+    }
+  }
+}

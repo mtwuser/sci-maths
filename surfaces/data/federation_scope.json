@@ -1,0 +1,50 @@
+{
+  "scope": "federation",
+  "layer_id": "sci-maths",
+  "visibility": "public",
+  "target_environments": [
+    "pro"
+  ],
+  "intranet_topology": {
+    "base_domain": "sci-maths.knowledge.local",
+    "node_host": "sci-maths.knowledge.local",
+    "port": 8720,
+    "promotion_pipeline": "staged",
+    "visibility": "public",
+    "environment_promotion_order": [
+      "dev",
+      "tst",
+      "pre",
+      "pro"
+    ],
+    "environment_subdomains": {
+      "dev": "https://dev.sci-maths.knowledge.local",
+      "tst": "https://tst.sci-maths.knowledge.local",
+      "pre": "https://pre.sci-maths.knowledge.local",
+      "pro": "https://sci-maths.knowledge.local"
+    },
+    "local_environment_urls": {
+      "dev": "http://127.0.0.1:8720/?env=dev",
+      "tst": "http://127.0.0.1:8720/?env=tst",
+      "pre": "http://127.0.0.1:8720/?env=pre",
+      "pro": "http://127.0.0.1:8720/?env=pro"
+    },
+    "environment_reachability": {
+      "dev": "local-loopback-only",
+      "tst": "local-preview-unprovisioned-intranet",
+      "pre": "local-preview-unprovisioned-intranet",
+      "pro": "public-remote-live"
+    },
+    "remote_production_url": "https://github.com/mtwuser/sci-maths.git",
+    "active_subdomain_url": "https://dev.sci-maths.knowledge.local",
+    "localhost_url": "http://127.0.0.1:8720/?env=dev"
+  },
+  "mounted_layers": [],
+  "fleet_plugin_inventory": [],
+  "cloud_iac_target": {
+    "provider": "google-cloud-iac",
+    "environment": "dev",
+    "stage": "local-cockpit",
+    "iac_manifest": "surfaces/infra/cloud_deployment.json"
+  }
+}
