@@ -1,0 +1,18 @@
+{
+  "schema_version": "zcg-surface-seal-v1",
+  "layer_id": "sci-maths",
+  "governing_root_id": "sci-maths",
+  "environment": "pro",
+  "surface_veracity_mode": "full-open-source",
+  "code_exposure_required": true,
+  "canonical_domain": "sci-maths.knowledge.local",
+  "local_rfc6761_subdomain": "sci-maths.localhost",
+  "source_repo_url": "https://github.com/mtwuser/sci-maths",
+  "copyright": "© 2026 sci-maths",
+  "public_routes_count": 4,
+  "public_routes_digest": "3ac0475c76468a18",
+  "served_assets_count": 3,
+  "served_assets_merkle_root": "55d38f2d37f34c5261da20c72b3885e15f7f6b47e384723465e2087c65e9dc88",
+  "seal_digest": "66263f3b2f361ca9",
+  "verification_endpoint": "/.well-known/zcg-attestation.json"
+}
